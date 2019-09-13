@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Jumbotron from '../components/Jumbotron';
+import API from "../utils/API";
 
 export default class Saved extends Component {
 
@@ -8,9 +10,7 @@ export default class Saved extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Saved Page</h1>
-            </div>
+            <Jumbotron />
         )
     }
 }

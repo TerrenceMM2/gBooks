@@ -10,14 +10,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
         <Navbar />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/saved" component={Saved} />
           <Route component={Error404} />
         </Switch>
-      </div>
     </Router>
     );
   }

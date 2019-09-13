@@ -1,25 +1,31 @@
 import React from 'react'
 
+const styles = {
+    icon : {
+        marginRight: ".5rem"
+    }
+}
+
 export default function Navbar() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img src="/favicon.ico" width="30" height="30" alt="gBooks Icon"/>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="/">
+                <img style={styles.icon} src="/favicon.ico" width="30" height="30" alt="gBooks Icon"/>
                 gBooks</a>
             <button
-                class="navbar-toggler"
+                className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/">Search</a>
-                    <a class="nav-item nav-link" href="/saved">Saved</a>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <a className="nav-item nav-link" href="/">Search</a>
+                    <a className="nav-item nav-link" href="/saved">Saved</a>
                 </div>
             </div>
         </nav>

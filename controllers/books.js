@@ -13,14 +13,15 @@ module.exports = {
     },
     find: function (req, res) {
         // Search Google for book based on search term
-        axios({
-            url: "https://www.googleapis.com/books/v1/volumes?q=" + req.body.search,
-            method: "GET"
-        }).then(response => {
-            res.status(200).json(response.data.items);
-        }).catch(err => {
-            res.json(err);
-        })
+        console.log(req.body)
+        // axios({
+        //     url: "https://www.googleapis.com/books/v1/volumes?q=" + req.body,
+        //     method: "GET"
+        // }).then(response => {
+        //     res.status(200).json(response.data.items);
+        // }).catch(err => {
+        //     res.json(err);
+        // })
     },
     post: function (req, res) {
         Book.create(req.body)
