@@ -7,7 +7,7 @@ export default {
   },
   // Gets the book with the given id
   findBooks: function(searchTerm) {
-    return axios.get("/api/books/search", searchTerm);
+    return axios.post("/api/books/search", { search: searchTerm });
   },
   // Saves a book to the database
   saveBook: function(bookData) {

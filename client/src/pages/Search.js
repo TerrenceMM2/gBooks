@@ -31,7 +31,7 @@ export default class Search extends Component {
         event.preventDefault();
         API.findBooks(this.state.searchTerm).then(res => {
             this.setState({
-                data: res.data
+                books: res.data
             })
         })
       };
