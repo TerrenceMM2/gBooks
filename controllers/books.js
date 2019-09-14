@@ -17,7 +17,20 @@ module.exports = {
             url: "https://www.googleapis.com/books/v1/volumes?q=" + req.body.search,
             method: "GET"
         }).then(response => {
-            res.status(200).json(response.data.items);
+            let bookArr = response.data.items;
+            let newArr = [];
+            bookArr.forEach(book => {
+                let obj = {
+                    id: book.id,
+                    title: book.volumeInfo.title,
+                    authors: book.volumeInfo.authors,
+                    description: book.volumeInfo.description,
+                    image: book.volumeInfo.imageLinks.smallThumbnail,
+                    link: book.volumeInfo.infoLink
+                }
+                newArr.push(obj);
+            })
+            res.status(200).json(newArr);
         }).catch(err => {
             res.json(err);
         })
