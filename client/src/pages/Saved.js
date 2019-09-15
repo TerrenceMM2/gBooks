@@ -11,10 +11,11 @@ export default class Saved extends Component {
         modalTitle: "",
         modalBody: "",
         modalShow: false,
+        page: "saved"
     };
 
     componentDidMount() {
-        API.getBooks().then(res => this.setState({books: res}))
+        API.getBooks().then(res => this.setState({books: res.data}))
             .catch(err => console.log(err));
     }
 
@@ -24,12 +25,37 @@ export default class Saved extends Component {
         });
     };
 
+    handlerDeleteBook = event => {
+        API.deleteBook(event.target.value).then(res => 
+            this.setState({
+                modalTitle: res.data.message,
+                modalBody: "Book successfully deleted.",
+                modalShow: true
+            })
+        ).catch(err => {
+            this.setState({
+                modalTitle: "Uh oh",
+                modalBody: "Sorry for the inconvenience. Please try again later.",
+                modalShow: true
+            })
+        });
+    };
+
     render() {
         return (
             <div>
                 <Jumbotron />
-                <ResultsContainer />
-                <BookModal />
+                <ResultsContainer
+                    handlerDeleteBook={this.handlerDeleteBook}
+                    page={this.state.page}
+                    books={this.state.books}
+                />
+                <BookModal
+                    handlerCloseModal={this.handlerCloseModal}
+                    modalTitle={this.state.modalTitle}
+                    modalBody={this.state.modalBody}
+                    show={this.state.modalShow}
+                />
             </div>
         )
     };

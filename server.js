@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/", routes);
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true }, );
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

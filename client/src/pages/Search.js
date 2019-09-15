@@ -13,12 +13,8 @@ export default class Search extends Component {
         modalTitle: "",
         modalBody: "",
         modalShow: false,
-        loading: false
-    };
-
-    handlerSearchForBooks = () => {
-        API.getBooks().then(res => this.setState({data: res}))
-            .catch(err => console.log(err));
+        loading: false,
+        page: "search"
     };
 
     handlerInputChange = event => {
@@ -67,9 +63,23 @@ export default class Search extends Component {
         return (
             <div>
                 <Jumbotron />
-                <Container loading={this.state.loading} searchTerm={this.state.searchTerm} handlerInputChange={this.handlerInputChange} handlerFormSubmit={this.handlerFormSubmit}/>
-                <ResultsContainer handlerSaveBook={this.handlerSaveBook} books={this.state.books}/>
-                <BookModal handlerCloseModal={this.handlerCloseModal} modalTitle={this.state.modalTitle} modalBody={this.state.modalBody} show={this.state.modalShow} />
+                <Container
+                    loading={this.state.loading}
+                    searchTerm={this.state.searchTerm}
+                    handlerInputChange={this.handlerInputChange}
+                    handlerFormSubmit={this.handlerFormSubmit}
+                />
+                <ResultsContainer
+                    handlerSaveBook={this.handlerSaveBook}
+                    page={this.state.page}
+                    books={this.state.books}
+                />
+                <BookModal
+                    handlerCloseModal={this.handlerCloseModal}
+                    modalTitle={this.state.modalTitle}
+                    modalBody={this.state.modalBody}
+                    show={this.state.modalShow}
+                />
             </div>
         )
     }
