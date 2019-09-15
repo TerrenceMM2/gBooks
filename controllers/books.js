@@ -38,7 +38,10 @@ module.exports = {
     post: function (req, res) {
         Book.create(req.body)
             .then(data => {
-                res.status(201).json(data)
+                res.status(201).json({
+                    data: data,
+                    message: "Book saved!"
+                })
             })
             .catch(err => {
                 res.status(500).send(err);

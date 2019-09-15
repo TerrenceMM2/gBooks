@@ -10,7 +10,7 @@ const styles = {
 export default function ResultsContainer(props) {
     return (
         <div style={styles.container} className="container">
-            {props.books.map(book => (<ListItem key={book.id} description={book.description} link={book.link} title={book.title} authors={book.authors} image={book.image}/>))}
+            {props.books.map(book => (<ListItem key={book.id} id={book.id} handlerSaveBook={props.handlerSaveBook} description={book.description} link={book.link} title={book.title} authors={book.authors} image={book.image}/>))}
         </div>
     )
 }

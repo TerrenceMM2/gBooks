@@ -10,7 +10,7 @@ const styles = {
 export default function Container(props) {
     return (
         <div style={styles.container} className="container">
-            <Form searchTerm={props.searchTerm} handlerInputChange={props.handlerInputChange} handlerFormSubmit={props.handlerFormSubmit}/>
+            <Form loading={props.loading} searchTerm={props.searchTerm} handlerInputChange={props.handlerInputChange} handlerFormSubmit={props.handlerFormSubmit}/>
         </div>
     )
 }
