@@ -36,6 +36,8 @@ export default class Search extends Component {
         });
     };
 
+    // Handles Post API and what is shown in modal.
+    // Searches state book array for item based on Google ID
     handlerSaveBook = event => {
         let savedBook = this.state.books.find(book => book.id === event.target.value);
         API.saveBook(savedBook).then(res => 

@@ -14,9 +14,14 @@ export default class Saved extends Component {
         page: "saved"
     };
 
-    componentDidMount() {
+    handlerLoadBooks = () => {
         API.getBooks().then(res => this.setState({books: res.data}))
-            .catch(err => console.log(err));
+        .catch(err => console.log(err));
+    }
+
+    // Will call GET Books API once Saved page component is loaded.
+    componentDidMount() {
+        this.handlerLoadBooks()
     }
 
     handlerCloseModal = () => {
@@ -25,19 +30,24 @@ export default class Saved extends Component {
         });
     };
 
+    // Handles Delete API and what is shown in modal.
+    // Deletes item based on Mongo Object ID.
     handlerDeleteBook = event => {
-        API.deleteBook(event.target.value).then(res => 
+        API.deleteBook(event.target.value).then(res => {
+            console.log(res);
+            this.handlerLoadBooks();
             this.setState({
-                modalTitle: res.data.message,
+                modalTitle: "Deleted!",
                 modalBody: "Book successfully deleted.",
                 modalShow: true
             })
-        ).catch(err => {
+        }).catch(err => {
             this.setState({
                 modalTitle: "Uh oh",
                 modalBody: "Sorry for the inconvenience. Please try again later.",
                 modalShow: true
             })
+            console.log(err);
         });
     };
 

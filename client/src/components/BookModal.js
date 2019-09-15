@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function SearchModal(props) {
     return (
+        // Uses React Bootstrap (NPM)
         <Modal show={props.show} onHide={props.handlerCloseModal}>
             <Modal.Header closeButton>
                 <Modal.Title>{props.modalTitle}</Modal.Title>

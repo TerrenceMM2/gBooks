@@ -1,33 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { Nav, Navbar } from "react-bootstrap";
 
 const styles = {
     icon : {
-        marginRight: ".5rem"
+        marginRight : ".5rem"
+    },
+    navbar : {
+        borderRight : "solid 1px lightgrey",
+        margin : 0,
+        paddingRight : "1rem"
+    },
+    search : {
+        paddingLeft : "1rem"
     }
 }
 
-export default function Navbar() {
+export default function NavBar(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">
-                <img style={styles.icon} src="/favicon.ico" width="30" height="30" alt="gBooks Icon"/>
-                gBooks</a>
-            <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <a className="nav-item nav-link" href="/">Search</a>
-                    <a className="nav-item nav-link" href="/saved">Saved</a>
-                </div>
-            </div>
-        </nav>
+        // Uses React Bootstrap (NPM)
+        <Navbar sticky="top" bg="light" expand="lg">
+            <Navbar.Brand style={styles.navbar} href="/"><img style={styles.icon} src="/favicon.ico" width="30" height="30" alt="gBooks Icon"/>gBooks</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav activeKey={props.location} className="mr-auto">
+                    <Nav.Link style={styles.search} href="/">Search</Nav.Link>
+                    <Nav.Link href="/saved">Saved</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 }

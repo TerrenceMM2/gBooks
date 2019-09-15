@@ -2,6 +2,7 @@ const Book = require('../models/Book');
 const axios = require('axios');
 
 module.exports = {
+    // GET: Gets all saved books from Mongo DB.
     get: function (req, res) {
         Book.find({})
             .then(data => {
@@ -11,6 +12,7 @@ module.exports = {
                 res.status(500).send(err);
             })
     },
+    // GET: Searches Google Books API based on search term
     find: function (req, res) {
         // Search Google for book based on search term
         axios({
@@ -35,6 +37,7 @@ module.exports = {
             res.json(err);
         })
     },
+    // POST: Saves searched book
     post: function (req, res) {
         Book.create(req.body)
             .then(data => {
@@ -47,9 +50,10 @@ module.exports = {
                 res.status(500).send(err);
             })
     },
+    // DELETE: Deletes saved book
     delete: function (req, res) {
         // Deletes book from the database.
-        Book.remove({_id : req.params.id})
+        Book.deleteOne({_id : req.params.id})
             .then(data => {
                 res.status(200).json(data)
             })

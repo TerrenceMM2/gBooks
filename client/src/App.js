@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
 import Error404 from "./pages/Error404";
-import Navbar from "./components/Navbar"
+import NavBar from "./components/NavBar";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
+        <NavBar location={window.location.pathname}/>
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/saved" component={Saved} />
