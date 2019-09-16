@@ -15,7 +15,7 @@ const styles = {
     }
 }
 
-export default function NavBar(props) {
+export default function Navigation(props) {
     return (
         // Uses React Bootstrap (NPM)
         <Navbar sticky="top" bg="light" expand="lg">
