@@ -23,9 +23,9 @@ export default function ListItem(props) {
     let button;
 
     if (props.page === "search") {
-        button = <Button onClick={props.handlerSaveBook} value={props.id} style={styles.button} variant="warning"><i className="far fa-lg fa-save"></i></Button>
+        button = <Button onClick={props.handlerSaveBook} value={props.id} style={styles.button} variant="warning"><i value={props.id} className="far fa-lg fa-save"></i></Button>
     } else if (props.page === "saved") {
-        button = <Button onClick={props.handlerDeleteBook} value={props._id} style={styles.button} variant="danger"><i className="fas fa-lg fa-trash-alt"></i></Button>
+        button = <Button onClick={props.handlerDeleteBook} value={props._id} style={styles.button} variant="danger"><i value={props._id} className="fas fa-lg fa-trash-alt"></i></Button>
     }; 
 
 

@@ -40,18 +40,19 @@ export default class Search extends Component {
     // Searches state book array for item based on Google ID
     handlerSaveBook = event => {
         let savedBook = this.state.books.find(book => book.id === event.target.value);
-        API.saveBook(savedBook).then(res => 
+        API.saveBook(savedBook).then(res => {
             this.setState({
-                modalTitle: res.data.message,
+                modalTitle: res.data.title + " saved.",
                 modalBody: "Go to the Saved page to see your saved books.",
                 modalShow: true
             })
+        }
         ).catch(err => {
             this.setState({
                 modalTitle: "Uh oh",
                 modalBody: "Sorry for the inconvenience. Please try again later.",
                 modalShow: true
-            })
+            });
         });
     };
 

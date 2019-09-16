@@ -10,10 +10,7 @@ var BookSchema = new Schema({
         type: [String],
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
+    description: String,
     image: {
         type: String,
         required: true
