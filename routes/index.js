@@ -6,10 +6,10 @@ var router = express.Router();
 router.use('/', require('./app'));
 router.use('/api/books', require('./api/books'));
 // If any other URL path is entered, the browser will display a 404 page.
-router.use('*', function(req, res){
-    res.json({
-        message : "Whoops ... 404."
-    });
-});
+// router.use('*', function(req, res){
+//     res.json({
+//         message : "Whoops ... 404."
+//     });
+// });
 
 module.exports = router;
