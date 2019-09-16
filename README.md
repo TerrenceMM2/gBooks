@@ -12,10 +12,11 @@ gBooks utilizes the Google Books API to search and save books to a dedicated dat
 ## Instructions  
 
 1. Navigate to [gBooks](https://g-bks.herokuapp.com/).  
-2. Using to search form, enter a book title or author.
-3. Click the yellow, save icon to save the book to the database.
-4. Click the "Saved" link to view all books that have been saved to the database.
-5. Click the red, delete icon to delete the book from the database.
+2. Using the search form, enter a book title or author.
+3. Click the book title from the displayed results to view the Google Books profile.
+4. Click the yellow, save icon to save the book to the database.
+5. Click the "Saved" link to view all books that have been saved to the database.
+6. Click the red, delete icon to delete the book from the database.
 
 - - - 
 
