@@ -33,7 +33,7 @@ export default class Saved extends Component {
     // Handles Delete API and what is shown in modal.
     // Deletes item based on Mongo Object ID.
     handlerDeleteBook = event => {
-        API.deleteBook(event.target.value).then(res => {
+        API.deleteBook(event.currentTarget.value).then(res => {
             console.log(res);
             this.handlerLoadBooks();
             this.setState({
